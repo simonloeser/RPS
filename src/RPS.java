@@ -44,8 +44,17 @@ public class RPS extends PApplet {
     }
 
     public void checkWinner() {
-        // TODO: Check whether only one type of Tool is in the tools-array left
-        // TODO: Print winner item to screen
+        // Check whether only one type of Tool is in the tools-array left
+        Tool tmp = tools[0];
+        for (Tool tool : tools) {
+            if (!tool.getClass().equals(tmp.getClass())) {
+                return;
+            }
+            tmp = tool;
+        }
+        // Print winner item to screen
+        textSize(50);
+        text(tmp.getClass().getName().substring(6) + " wins!", width / 2 - 120, height / 2);
     }
 
     public void moveTools() {
@@ -59,37 +68,10 @@ public class RPS extends PApplet {
     public void generateTools() {
         // Die Laufzeit ist shit
         for (int i = 0; i < tools.length; i++) {
-            float x = random(TOOL_SIZE, this.width - TOOL_SIZE);
-            float y = random(TOOL_SIZE, this.height - TOOL_SIZE);
+            float x = random(TOOL_SIZE, width - TOOL_SIZE);
+            float y = random(TOOL_SIZE, height - TOOL_SIZE);
 
-            // TODO: Spawning system
-            /*for (Tool tool : tools) {
-                if (tool == null) {
-                    continue;
-                }
-
-                if ((tool.x + x) / 2 <= TOOL_SIZE) {
-                    x = random(TOOL_SIZE, 720 - TOOL_SIZE);
-                }
-
-                if ((tool.y + y) / 2 <= TOOL_SIZE) {
-                    y = random(TOOL_SIZE, 720 - TOOL_SIZE);
-                }
-            }
-
-            for (int j = 0; j <= i; j++) {
-                if (tools[j] != null) {
-                    Tool t = tools[j];
-
-                    while ((t.x + x) / 2 <= TOOL_SIZE * 3) {
-                        x = random(TOOL_SIZE, 720 - TOOL_SIZE);
-                    }
-
-                    while ((t.y + y) / 2 <= TOOL_SIZE * 3) {
-                        y = random(TOOL_SIZE, 720 - TOOL_SIZE);
-                    }
-                }
-            }*/
+            // TODO: Spawning system (don't spawn objects in each other)
 
             switch (i % 3) {
                 case 0 -> tools[i] = new Rock(this, x, y, TOOL_SIZE);
