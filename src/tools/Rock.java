@@ -18,5 +18,8 @@ public class Rock extends Tool {
     @Override
     public void display() {
         this.sketch.circle(this.x, this.y, 25);
+        // TODO: remove debug
+        this.sketch.fill(255, 0, 0);
+        this.sketch.circle(x, y, 5);
     }
 }
