@@ -3,6 +3,7 @@ package tools;
 import processing.core.PApplet;
 
 public abstract class Tool implements Beatable {
+    public final float TOOL_MOVE_OFFSET = 5;
     public PApplet sketch;
     public float x;
     public float y;
@@ -18,7 +19,8 @@ public abstract class Tool implements Beatable {
     }
 
     public void move() {
-
+        this.x = this.x + sketch.random(-TOOL_MOVE_OFFSET, TOOL_MOVE_OFFSET);
+        this.y = this.y + sketch.random(-TOOL_MOVE_OFFSET, TOOL_MOVE_OFFSET);
     }
 
     public void wallBounce() {

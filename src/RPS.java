@@ -24,6 +24,12 @@ public class RPS extends PApplet {
         } else {
             moveTools();
         }
+        checkWinner();
+    }
+
+    public void checkWinner() {
+        // TODO: Check whether only one type of Tool is in the tools-array left
+        // TODO: Print winner item to screen
     }
 
     public void moveTools() {
@@ -40,7 +46,8 @@ public class RPS extends PApplet {
             float x = random(TOOL_SIZE, 720 - TOOL_SIZE);
             float y = random(TOOL_SIZE, 720 - TOOL_SIZE);
 
-            for (Tool tool : tools) {
+            // TODO: Spawning system
+            /*for (Tool tool : tools) {
                 if (tool == null) {
                     continue;
                 }
@@ -54,7 +61,7 @@ public class RPS extends PApplet {
                 }
             }
 
-            /*for (int j = 0; j <= i; j++) {
+            for (int j = 0; j <= i; j++) {
                 if (tools[j] != null) {
                     Tool t = tools[j];
 
