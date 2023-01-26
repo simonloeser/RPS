@@ -21,6 +21,7 @@ public abstract class Tool implements Beatable {
     }
 
     public void move() {
+        // TODO: Reset speed after bounce? But it looks kinda cool this way and speeds up the game
         this.x += this.xSpeed;
         this.y += this.ySpeed;
         this.xSpeed += sketch.random(-TOOL_MOVE_OFFSET, TOOL_MOVE_OFFSET);
@@ -61,10 +62,8 @@ public abstract class Tool implements Beatable {
     }
 
     public boolean collidesWith(Tool tool) {
-        // Return whether collision with tool happened
         float offsetOne = this instanceof Scissors ? TOOL_SIZE / 2 : 0;
         float offsetTwo = tool instanceof Scissors ? TOOL_SIZE / 2 : 0;
-
         return this.x + offsetOne - tool.x + offsetTwo <= TOOL_SIZE / 2 && this.y + offsetOne - tool.y + offsetTwo <= TOOL_SIZE / 2;
     }
 }

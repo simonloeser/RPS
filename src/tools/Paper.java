@@ -17,7 +17,7 @@ public class Paper extends Tool {
     @Override
     public void display() {
         this.sketch.square(this.x, this.y, 25);
-        // TODO: remove debug
+        // TODO: remove debug center
         this.sketch.fill(255, 0, 0);
         this.sketch.circle(x, y, 5);
     }
