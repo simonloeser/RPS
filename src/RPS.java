@@ -34,7 +34,6 @@ public class RPS extends PApplet {
                 if (tool.collidesWith(tool2)) {
                     if (tool.canBeatMe(tool2)) {
                         // TODO: Override tool with tool2
-
                     } else {
                         // TODO: Override tool2 with tool
                     }
