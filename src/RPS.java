@@ -23,8 +23,24 @@ public class RPS extends PApplet {
             generateTools();
         } else {
             moveTools();
+            checkCollision();
+            checkWinner();
         }
-        checkWinner();
+    }
+
+    private void checkCollision() {
+        for (Tool tool : tools) {
+            for (Tool tool2 : tools) {
+                if (tool.collidesWith(tool2)) {
+                    if (tool.canBeatMe(tool2)) {
+                        // TODO: Override tool with tool2
+
+                    } else {
+                        // TODO: Override tool2 with tool
+                    }
+                }
+            }
+        }
     }
 
     public void checkWinner() {
@@ -43,8 +59,8 @@ public class RPS extends PApplet {
     public void generateTools() {
         // Die Laufzeit ist shit
         for (int i = 0; i < tools.length; i++) {
-            float x = random(TOOL_SIZE, 720 - TOOL_SIZE);
-            float y = random(TOOL_SIZE, 720 - TOOL_SIZE);
+            float x = random(TOOL_SIZE, this.width - TOOL_SIZE);
+            float y = random(TOOL_SIZE, this.height - TOOL_SIZE);
 
             // TODO: Spawning system
             /*for (Tool tool : tools) {

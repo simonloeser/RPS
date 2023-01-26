@@ -11,8 +11,7 @@ public class Paper extends Tool {
 
     @Override
     public boolean canBeatMe(Tool tool) {
-        // TODO: return whether tool is stronger
-        return true;
+        return tool instanceof Scissors;
     }
 
     @Override
